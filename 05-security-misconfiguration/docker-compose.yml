@@ -1,0 +1,10 @@
+version: '2'
+services:
+  owasp-5-server:
+    build:
+      context: .
+    container_name: owasp-5-server
+    ports:
+      - "80:80"
+    volumes:
+      - ./htdocs:/var/www/html

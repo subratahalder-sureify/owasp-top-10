@@ -1,0 +1,5 @@
+docker-compose up
+
+http://localhost
+
+For fix: uncomment line 5

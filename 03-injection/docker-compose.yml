@@ -1,0 +1,34 @@
+version: '3'
+services:
+  octave:
+    build:
+      context: .
+    container_name: owasp-3-server
+    ports:
+      - "80:80"
+    env_file:
+      - local_env
+    volumes:
+      - .:/go
+    networks:
+      - internal
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:5.7
+    container_name: owasp-3-db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PWD}
+    env_file:
+      - local_env
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    networks:
+      - internal
+    ports:
+      - "3306:3306"
+
+networks:
+  internal:
+    driver: bridge

@@ -1,0 +1,16 @@
+version: '3'
+services:
+  themis:
+    build:
+      context: .
+    container_name: owasp-6-server
+    ports:
+      - "80:80"
+    volumes:
+      - .:/go
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge

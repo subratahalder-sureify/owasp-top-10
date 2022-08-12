@@ -1,0 +1,19 @@
+version: '2'
+services:
+  owasp-1-victim:
+    build:
+      context: ./victim
+    container_name: owasp-1-victim
+    ports:
+      - "80:8080"
+    volumes:
+      - ./victim:/go
+
+  owasp-1-perpetrator:
+    build:
+      context: ./perpetrator
+    container_name: owasp-1-perpetrator
+    ports:
+      - "81:80"
+    volumes:
+      - ./perpetrator/htdocs:/var/www/html

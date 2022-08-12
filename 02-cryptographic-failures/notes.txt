@@ -1,0 +1,11 @@
+docker-compose up owasp-2-server
+
+docker-compose up owasp-2-client
+docker exec -it owasp-2-client bash
+
+docker-compose up owasp-2-sniffer
+
+
+lynx http://owasp-2-server
+
+lynx https://owasp-2-server

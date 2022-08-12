@@ -1,0 +1,18 @@
+docker-compose up
+
+curl -XPOST http://localhost/api/v1/themis/join1 \
+    -H "Content-Type: application/json" \
+    -d '{"obj": "[{\"k\":\"v\"},{\"k\":\"nv\"}]"}'
+
+curl -XPOST http://localhost/api/v1/themis/join1 \
+    -H "Content-Type: application/json" \
+    -d '{"obj": "[{\"k\":\"v\"},{"}'
+
+
+curl -XPOST http://localhost/api/v1/themis/join2 \
+    -H "Content-Type: application/json" \
+    -d '{"obj": "[{\"k\":\"v\"},{"}'
+
+curl -XPOST http://localhost/api/v1/themis/join2 \
+    -H "Content-Type: application/json" \
+    -d '{"obj": "[{\"k\":\"v\"},{\"k\":\"nv\"}]"}'

@@ -1,0 +1,35 @@
+version: '2'
+services:
+  owasp-2-server:
+    build:
+      context: ./server
+    container_name: owasp-2-server
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./server/htdocs:/var/www/html
+      - ./server/cert/CA/localhost:/etc/ssl/localhost
+    networks:
+      - internal
+
+  owasp-2-client:
+    build:
+      context: ./client
+    container_name: owasp-2-client
+    command: tail -F anything
+    networks:
+      - internal
+
+  owasp-2-sniffer:
+    build:
+      context: ./sniffer
+    container_name: owasp-2-sniffer
+    network_mode: "container:owasp-2-client"
+    command: tcpdump -A -i eth0
+    depends_on:
+      - owasp-2-client
+
+networks:
+  internal:
+    driver: bridge

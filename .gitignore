@@ -1,0 +1,5 @@
+.DS_Store
+vendor
+pkg
+user-data
+mysql-data

@@ -1,0 +1,7 @@
+docker-compose --env-file local_env up
+
+http://localhost/api/v1/octave/customers?id=20
+http://localhost/api/v1/octave/customers?id=100%20OR%201=1
+
+http://localhost/api/v1/octave/scustomers?id=100%20OR%201=1
+http://localhost/api/v1/octave/scustomers?id=20

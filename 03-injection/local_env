@@ -1,0 +1,4 @@
+DB_HOST=mysqldb
+DB_USER=root
+DB_PWD=123456
+DB_DB=octave
